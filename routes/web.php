@@ -28,3 +28,23 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('login', 'login');
     Route::get('logout', 'logout');
 });
+
+Route::get('/foto/{filename}', function ($filename) {
+    $path = storage_path('app/public/foto/' . $filename);
+
+    if (! File::exists($path)) {
+        abort(404);
+    }
+
+    return Response::file($path);
+});
+
+Route::get('/foto_kandidat/{filename}', function ($filename) {
+    $path = storage_path('app/public/foto_kandidat/' . $filename);
+
+    if (! File::exists($path)) {
+        abort(404);
+    }
+
+    return Response::file($path);
+});
