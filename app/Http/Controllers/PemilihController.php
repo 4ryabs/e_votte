@@ -21,7 +21,7 @@ class PemilihController extends Controller
             if ($request->hasFile('foto')) {
                 $file     = $request->file('foto');
                 $namaFile = time() . '_' . $file->getClientOriginalName();
-                $file->move(directory: public_path('foto'), name: $namaFile);
+                $file->storeAs('public/foto', $namaFile);
             } else {
                 $namaFile = 'default.jpg';
             }

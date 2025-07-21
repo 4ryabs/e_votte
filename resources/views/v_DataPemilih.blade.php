@@ -206,7 +206,7 @@
                     <td>{{ $row->nim }}</td>
                     <td>{{ $row->prodi }}</td>
                     <td>
-                        <img src="{{ asset('foto/' . $row->foto) }}" alt="foto">
+                        <img src="{{ asset('storage/foto/' . $row->foto) }}" alt="foto">
                     </td>
                     <td>
                         <div class="d-flex">

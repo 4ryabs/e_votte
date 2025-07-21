@@ -30,7 +30,7 @@ class KandidatController extends Controller
         if ($request->hasFile('foto_paslon')) {
             $file     = $request->file('foto_paslon');
             $namaFile = time() . '_' . $file->getClientOriginalName();
-            $file->move(directory: public_path('foto_kandidat'), name: $namaFile);
+            $file->storeAs('public/foto_kandidat', $namaFile);
         } else {
             $namaFile = 'default.jpg';
         }
