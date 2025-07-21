@@ -52,8 +52,30 @@ Route::get('/foto_kandidat/{filename}', function ($filename) {
 
 Route::get('/cek-folder', function () {
     $path = storage_path('app/public/foto_kandidat');
-    
-    if (!File::exists($path)) {
+
+    if (! File::exists($path)) {
+        return 'Folder tidak ditemukan';
+    }
+
+    $files = File::files($path);
+
+    if (empty($files)) {
+        return 'Folder kosong';
+    }
+
+    $result = "<h3>Isi folder foto_kandidat:</h3><ul>";
+    foreach ($files as $file) {
+        $result .= "<li>" . $file->getFilename() . "</li>";
+    }
+    $result .= "</ul>";
+
+    return $result;
+});
+
+Route::get('/cek', function () {
+    $path = storage_path('app/public/foto');
+
+    if (! File::exists($path)) {
         return 'Folder tidak ditemukan';
     }
 
