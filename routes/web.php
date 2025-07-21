@@ -51,7 +51,7 @@ Route::get('/foto_kandidat/{filename}', function ($filename) {
 });
 
 Route::get('/cek-folder', function () {
-    $path = storage_path('app/public/foto_kandidat');
+    $path = storage_path('public/foto_kandidat');
 
     if (! File::exists($path)) {
         return 'Folder tidak ditemukan';
@@ -73,7 +73,7 @@ Route::get('/cek-folder', function () {
 });
 
 Route::get('/cek', function () {
-    $path = storage_path('app/public/foto');
+    $path = storage_path('public/foto');
 
     if (! File::exists($path)) {
         return 'Folder tidak ditemukan';
