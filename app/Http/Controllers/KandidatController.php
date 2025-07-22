@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\m_DetailKandidat;
 use App\Models\m_Kandidat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class KandidatController extends Controller
 {
@@ -28,6 +29,8 @@ class KandidatController extends Controller
         ]);
 
         if ($request->hasFile('foto_paslon')) {
+            Storage::makeDirectory('public/foto_kandidat');
+
             $file     = $request->file('foto_paslon');
             $namaFile = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('public/foto_kandidat', $namaFile);

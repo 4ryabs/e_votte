@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class PemilihController extends Controller
 {
@@ -19,12 +20,15 @@ class PemilihController extends Controller
     {
         try {
             if ($request->hasFile('foto')) {
+                Storage::makeDirectory('public/foto');
+
                 $file     = $request->file('foto');
                 $namaFile = time() . '_' . $file->getClientOriginalName();
                 $file->storeAs('public/foto', $namaFile);
             } else {
                 $namaFile = 'default.jpg';
             }
+
             m_DataPemilih::create([
                 'name'     => $request->name,
                 'nim'      => $request->nim,
@@ -38,7 +42,7 @@ class PemilihController extends Controller
 
             return redirect(route('login'))->with('message', 'Data berhasil disimpan');
         } catch (Exception $e) {
-            echo($e->getMessage());
+            echo $e->getMessage();
         }
     }
 

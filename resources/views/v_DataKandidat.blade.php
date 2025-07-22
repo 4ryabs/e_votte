@@ -196,7 +196,7 @@
                     <td rowspan="2">{{ $kandidat->visi }}</td>
                     <td rowspan="2">{{ $kandidat->misi }}</td>
                     <td rowspan="2">
-                        <img src="{{ url('foto_kandidat/' . $kandidat->foto_paslon) }}" alt="Foto Paslon">
+                        <img src="{{ url('storage/foto_kandidat/' . $kandidat->foto_paslon) }}" alt="Foto Paslon">
                             Tidak ada
                         @endif
                     </td>
