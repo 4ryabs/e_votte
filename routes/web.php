@@ -30,28 +30,28 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('logout', 'logout');
 });
 
-Route::get('/foto/{filename}', function ($filename) {
-    $path = storage_path('app/public/foto/' . $filename);
+// Route::get('/foto/{filename}', function ($filename) {
+//     $path = storage_path('app/public/foto/' . $filename);
 
-    if (! File::exists($path)) {
-        abort(404);
-    }
+//     if (! File::exists($path)) {
+//         abort(404);
+//     }
 
-    return Response::file($path);
-});
+//     return Response::file($path);
+// });
 
-Route::get('/foto_kandidat/{filename}', function ($filename) {
-    $path = storage_path('app/public/foto_kandidat/' . $filename);
+// Route::get('/foto_kandidat/{filename}', function ($filename) {
+//     $path = storage_path('app/public/foto_kandidat/' . $filename);
 
-    if (! File::exists($path)) {
-        abort(404);
-    }
+//     if (! File::exists($path)) {
+//         abort(404);
+//     }
 
-    return Response::file($path);
-});
+//     return Response::file($path);
+// });
 
 Route::get('/cek-folder', function () {
-    $path = storage_path('public/foto_kandidat');
+    $path = storage_path('storage/foto_kandidat');
 
     if (! File::exists($path)) {
         return 'Folder tidak ditemukan';
@@ -73,7 +73,7 @@ Route::get('/cek-folder', function () {
 });
 
 Route::get('/cek', function () {
-    $path = storage_path('public/foto');
+    $path = storage_path('storage/foto');
 
     if (! File::exists($path)) {
         return 'Folder tidak ditemukan';
