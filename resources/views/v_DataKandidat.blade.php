@@ -165,7 +165,7 @@
     <h1>DATA KANDIDAT BEM</h1>
     @if(session('user_role') === 'admin')
         <div style="text-align: right; margin-bottom: 15px;">
-            <a href="{{ url('/kandidat/create') }}" class="btn">Tambah Kandidat</a>
+            <a href="{{ url('/kandidat/daftar') }}" class="btn">Tambah Kandidat</a>
         </div>
     @endif
 
