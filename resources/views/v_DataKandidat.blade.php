@@ -196,7 +196,9 @@
                     <td rowspan="2">{{ $kandidat->visi }}</td>
                     <td rowspan="2">{{ $kandidat->misi }}</td>
                     <td rowspan="2">
-                        <img src="{{ asset('storage/foto_kandidat/' . $kandidat->foto_paslon) }}" alt="Foto Paslon">
+                        @if($kandidat->foto_paslon)
+                            <img src="{{ asset('storage/foto_kandidat/' . $kandidat->foto_paslon) }}" alt="Foto Paslon">
+                        @else
                             Tidak ada
                         @endif
                     </td>
